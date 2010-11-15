@@ -1,0 +1,68 @@
+body {
+  background-color: #0c1729;
+}
+
+.back-the-fuck-ground {
+  background: url(back.png);
+  height: 636px;
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cell {
+  width: 64px;
+  height: 64px;
+  border: 1px solid blue;
+  position: absolute;
+}
+
+#cell-1-1 { left: 400px; top: 210px; }
+#cell-1-2 { left: 475px; top: 210px; }
+#cell-1-3 { left: 555px; top: 210px; }
+#cell-2-1 { left: 400px; top: 290px; }
+#cell-2-2 { left: 475px; top: 290px; }
+#cell-2-3 { left: 555px; top: 290px; }
+#cell-3-1 { left: 400px; top: 365px; }
+#cell-3-2 { left: 475px; top: 365px; }
+#cell-3-3 { left: 555px; top: 365px; }
+
+.stuff {
+  position: relative;
+  height: 100%;
+}
+
+#bubble {
+  background: url(bubble.png) no-repeat;
+  font-size: 18pt;
+  font-weight: bold;
+  left: 510px;
+  top: 50px;
+  width: 339px;
+  height: 229px;
+  position: absolute;
+}
+
+#bubble-content {
+  margin: 42px 8px;;
+}
+
+#lifebar1-back,
+#lifebar2-back {
+  left: 18px;
+  top: 429px;
+  width: 255px;
+  height: 44px;
+  position: absolute;
+}
+
+#lifebar2-back {
+  left: 737px;
+}
+
+#lifebar1-woot,
+#lifebar2-woot {
+  background: url(lifebar.png) no-repeat;
+  width: 255px;
+  height: 44px;
+}
