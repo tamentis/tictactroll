@@ -1,4 +1,5 @@
 from pyramid.configuration import Configurator
+from pyramid_beaker import session_factory_from_settings
 from tictactroll.models import get_root
 
 def app(global_config, **settings):
@@ -9,10 +10,19 @@ def app(global_config, **settings):
     """
     config = Configurator(root_factory=get_root, settings=settings)
     config.begin()
-    config.add_view('tictactroll.views.my_view',
-                    context='tictactroll.models.MyModel',
-                    renderer='tictactroll:templates/base.mako')
-    config.add_static_view('static', 'tictactroll:static')
+    session_factory = session_factory_from_settings(settings)
+    config.set_session_factory(session_factory)
+
+    config.add_view("tictactroll.views.game", name="game",
+                    renderer="tictactroll:templates/game.mako")
+    config.add_view("tictactroll.views.welcome",
+                    renderer="tictactroll:templates/welcome.mako")
+    config.add_view("tictactroll.views.enter_game", name="enter_game")
+
+    config.add_view("tictactroll.views.add_grid", name="add_grid",
+                    renderer="json")
+
+    config.add_static_view("static", "tictactroll:static")
     config.end()
     return config.make_wsgi_app()
 
