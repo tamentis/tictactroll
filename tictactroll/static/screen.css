@@ -1,31 +1,101 @@
 body {
-  background-color: #0c1729;
+  background-color: #8c96a7;
+  background: url(backtiles.png);
+}
+
+img {
+  border: none;
+}
+
+p {
+  text-align: left;
+  padding-top: 10px;
+}
+
+input {
+  padding: 4px;
+  font-size: 14px;
+}
+
+#header{
+  font-size: 20px;
+}
+
+#board-container {
+  position: absolute;
+  left: 245px;
+  top: 119px;
+  width: 514px;
+  height: 466px;
+  overflow: hidden;
+}
+
+#board {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 512px;
+  height: 464px;
+  background-color: #d4d8df;
+}
+
+#board-grabber {
+  background: url(transparent.png);
+  left: 245px;
+  top: 119px;
+  width: 512px;
+  height: 464px;
+  position: absolute;
+}
+
+.piece-core {
+  width: 67px;
+  height: 67px;
+  position: absolute;
+}
+
+.piece-blank {
+  background-color: #000;
+}
+
+.piece-green {
+  background-color: #8eb500;
+}
+
+.piece-cross {
+  background-image: url(cross.png);
+}
+
+.piece-circle {
+  background-image: url(circle.png);
+}
+
+.grid-core {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
+.grid-pending {
+  background-color: #70adf9;
+}
+.grid-green {
+  background-color: #09af1e;
+}
+.grid-red {
+  background-color: #af091e;
+}
+
+.grid-cursor {
+  background-color: #042854;
 }
 
 .back-the-fuck-ground {
-  background: url(back.png);
   height: 636px;
   width: 1024px;
   margin-left: auto;
   margin-right: auto;
 }
-
-.cell {
-  width: 64px;
-  height: 64px;
-  border: 1px solid blue;
-  position: absolute;
-}
-
-#cell-1-1 { left: 400px; top: 210px; }
-#cell-1-2 { left: 475px; top: 210px; }
-#cell-1-3 { left: 555px; top: 210px; }
-#cell-2-1 { left: 400px; top: 290px; }
-#cell-2-2 { left: 475px; top: 290px; }
-#cell-2-3 { left: 555px; top: 290px; }
-#cell-3-1 { left: 400px; top: 365px; }
-#cell-3-2 { left: 475px; top: 365px; }
-#cell-3-3 { left: 555px; top: 365px; }
 
 .stuff {
   position: relative;
@@ -33,13 +103,14 @@ body {
 }
 
 #bubble {
+  display: none;
   background: url(bubble.png) no-repeat;
   font-size: 18pt;
   font-weight: bold;
-  left: 510px;
-  top: 50px;
+  left: 650px;
+  top: 10px;
   width: 339px;
-  height: 229px;
+  height: 173px;
   position: absolute;
 }
 
@@ -49,15 +120,15 @@ body {
 
 #lifebar1-back,
 #lifebar2-back {
-  left: 18px;
-  top: 429px;
+  left: 19px;
+  top: 393px;
   width: 255px;
   height: 44px;
   position: absolute;
 }
 
 #lifebar2-back {
-  left: 737px;
+  left: 799px;
 }
 
 #lifebar1-woot,
@@ -65,4 +136,55 @@ body {
   background: url(lifebar.png) no-repeat;
   width: 255px;
   height: 44px;
+}
+
+#red-button {
+  width: 128px;
+  height: 103px;
+  position: absolute;
+  left: 440px;
+  top: 600px;
+  background: url(button.png) no-repeat;
+  cursor: pointer;
+}
+
+#red-button.pressed {
+  background-position: 0px -103px;
+}
+
+#count-down {
+  font-size: 48px;
+  font-weight: bold;
+  position: absolute;
+  width: 100px;
+  text-align: center;
+  left: 453px;
+  top: 70px;
+  text-shadow: 0px 2px 3px #555;
+}
+
+.player-name {
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  width: 210px;
+  text-align: center;
+  top: 360px;
+  text-shadow: 0px 2px 3px #333;
+}
+.player1-name {
+  left: 10px;
+}
+.player2-name {
+  right: 20px;
+}
+
+.player-image {
+  position: absolute;
+  width: 195px;
+  height: 190px;
+  top: 177px;
+}
+.player1-image {
+  left: 18px;
 }
