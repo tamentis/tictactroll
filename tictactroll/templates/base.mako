@@ -26,7 +26,11 @@
 <body>
 	<div id="wrap">
 		<div id="header">
-			<div class="header">Le reddic-tac-troll</div>
+			<div class="header">Le reddic-tac-troll &middot; [
+        <a href="/">home</a> &middot;
+        <a href="/new_game">new game</a> &middot;
+        <a href="/about">about</a>
+      ]</div>
 		</div>
 
     <div class="align-center">

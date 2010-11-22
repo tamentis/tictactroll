@@ -19,6 +19,10 @@ input {
 
 #header{
   font-size: 20px;
+  z-index: 10;
+}
+#header a:hover {
+  color: white;
 }
 
 #board-container {
@@ -34,8 +38,8 @@ input {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 512px;
-  height: 464px;
+  width: 514px;
+  height: 466px;
   background-color: #d4d8df;
 }
 
@@ -43,11 +47,64 @@ input {
   background: url(transparent.png);
   left: 245px;
   top: 119px;
-  width: 512px;
-  height: 464px;
+  width: 514px;
+  height: 466px;
   position: absolute;
 }
 
+/*
+ * Game Over
+ */
+#gameover-modal {
+  display: none;
+  z-index: 50;
+  background-color: black;
+  opacity: 0.6;
+  left: 245px;
+  top: 119px;
+  width: 514px;
+  height: 466px;
+  position: absolute;
+}
+#gameover-container {
+  display: none;
+  z-index: 60;
+  left: 245px;
+  top: 119px;
+  width: 514px;
+  height: 466px;
+  position: absolute;
+  padding: 0px;
+  text-shadow: 0px 2px 3px #333;
+}
+#gameover-container p,
+#gameover-container a {
+  font-size: 24px;
+  color: white;
+}
+#gameover-container h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+}
+.pts-table {
+  color: #ddd;
+  width: 94%;
+  font-size: 24px;
+  text-shadow: 0px 2px 3px #333;
+}
+.pts-table th {
+  color: white;
+  text-align: right;
+  padding: 4px;
+}
+.pts-table td {
+  text-align: right;
+}
+
+/*
+ * Pieces
+ */
 .piece-core {
   width: 67px;
   height: 67px;
@@ -61,6 +118,9 @@ input {
 .piece-green {
   background-color: #8eb500;
 }
+.piece-pink {
+  background-color: #840090;
+}
 
 .piece-cross {
   background-image: url(cross.png);
@@ -70,6 +130,9 @@ input {
   background-image: url(circle.png);
 }
 
+/*
+ * Grids
+ */
 .grid-core {
   position: absolute;
   width: 200px;
@@ -81,6 +144,9 @@ input {
 }
 .grid-green {
   background-color: #09af1e;
+}
+.grid-pink {
+  background-color: #f970f9;
 }
 .grid-red {
   background-color: #af091e;
@@ -103,6 +169,7 @@ input {
 }
 
 #bubble {
+  z-index: 20;
   display: none;
   background: url(bubble.png) no-repeat;
   font-size: 18pt;
@@ -121,9 +188,9 @@ input {
 #lifebar1-back,
 #lifebar2-back {
   left: 19px;
-  top: 393px;
-  width: 255px;
-  height: 44px;
+  top: 373px;
+  width: 195px;
+  height: 30px;
   position: absolute;
 }
 
@@ -134,8 +201,8 @@ input {
 #lifebar1-woot,
 #lifebar2-woot {
   background: url(lifebar.png) no-repeat;
-  width: 255px;
-  height: 44px;
+  width: 195px;
+  height: 30px;
 }
 
 #red-button {
@@ -169,7 +236,7 @@ input {
   position: absolute;
   width: 210px;
   text-align: center;
-  top: 360px;
+  top: 126px;
   text-shadow: 0px 2px 3px #333;
 }
 .player1-name {
@@ -187,4 +254,21 @@ input {
 }
 .player1-image {
   left: 18px;
+}
+
+.player-stats {
+  position: absolute;
+  width: 210px;
+  height: 190px;
+  top: 417px;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0px 2px 3px #333;
+  text-align: left;
+}
+.player1-stats {
+  left: 20px;
+}
+.player2-stats {
+  right: 15px;
 }

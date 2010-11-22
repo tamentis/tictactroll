@@ -2,6 +2,20 @@
 
 <%inherit file="base.mako" />
 
+<%def name="extra_headers()">
+  <script type="text/javascript">
+    function check() {
+      var value = $("username").value;
+      if (value.length) {
+        return true;
+      } else {
+        alert("Come one dude, give me a user name, anything!");
+        return false;
+      }
+    }
+  </script>
+</%def>
+
 <%def name="body()">
   <p style="padding-top: 128px;">
     Welcome to <strong>reddic-tac-troll</strong>! The twisted tic-tac-toe
@@ -11,9 +25,9 @@
   </p>
 
   <p class="align-center" style="margin-top: 64px;">
-    <form action="${request.application_url}/enter_game">
+    <form action="${request.application_url}/enter_game" onsubmit="return check()">
       <label for="username">Reddit username:&nbsp;</label>
-      <input name="username" />
+      <input id="username" name="username" />
       <input type="submit" value="Rock on" />
     </form>
   </p>
