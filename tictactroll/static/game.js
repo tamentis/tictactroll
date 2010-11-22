@@ -1,5 +1,8 @@
 /* Constants/Config is on the HTML template. */
 
+Element.getOpacity = function() {}
+Element.prototype.getOpacity = function() {}
+
 /* Where the cursor currently is */
 var cursorX = 2;
 var cursorY = 2;
@@ -210,16 +213,24 @@ document.addEvent("domready", function() {
   mapElements();
 
   var dragInstance = new Drag(boardElement, {
-    "handle": boardGrabberElement
+    "handle": boardGrabberElement,
+    "preventDefault": true,
+    "stopPropagation": true
   });
 
+  /*
   dragInstance.addEvent("drag", function(el, x1, x2) {
     var offsetLeft = el.offsetLeft;
     var offsetTop = el.offsetTop;
-    cursorX = parseInt((offsetLeft * -1 + boardWidth / 2) / pieceDist) - 1;
-    cursorY = parseInt((offsetTop * -1 + boardHeight / 2) / pieceDist) - 1;
-    moveGrid(cursorElement, cursorX, cursorY);
+    var nCursorX = parseInt((offsetLeft * -1 + boardWidth / 2) / pieceDist) - 1;
+    var nCursorY = parseInt((offsetTop * -1 + boardHeight / 2) / pieceDist) - 1;
+    if (cursorX != nCursorX || cursorY != nCursorY) {
+      cursorX = nCursorX;
+      cursorY = nCursorY;
+      moveGrid(cursorElement, cursorX, cursorY);
+    }
   });
+  */
 
   buttonElement.addEvent("click", function(event) {
     fire();

@@ -6,10 +6,10 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.txt')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
-requires = ['pyramid']
+requires = ['pyramid', "pyramid_beaker"]
 
 setup(name='tictactroll',
-      version='0.0',
+      version='0.3',
       description='tictactroll',
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[
@@ -18,11 +18,15 @@ setup(name='tictactroll',
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
         ],
-      author='',
-      author_email='',
+      author='Bertrand Janin',
+      author_email='tamentis@neopulsar.org',
       url='',
-      keywords='web wsgi bfg pyramid pylons',
+      keywords='web wsgi bfg pyramid pylons tic-tac-toe reddit',
       packages=find_packages(),
+      scripts=[
+        "scripts/get.py",
+        "scripts/load.py",
+      ],
       include_package_data=True,
       zip_safe=False,
       install_requires=requires,

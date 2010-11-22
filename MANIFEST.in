@@ -1,0 +1,2 @@
+recursive-include tictactroll/static *
+recursive-include tictactroll/templates *

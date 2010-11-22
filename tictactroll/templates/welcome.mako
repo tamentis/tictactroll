@@ -18,7 +18,7 @@
 
 <%def name="body()">
   <p style="padding-top: 128px;">
-    Welcome to <strong>reddic-tac-troll</strong>! The twisted tic-tac-toe
+    Welcome to <strong>tic-tac-troll</strong>! The twisted tic-tac-toe
     where you place the grids, not the shapes. You have ${countdown} seconds
     to place as many grids as you can, they can't overlap and they have to
     contain three crosses aligned. Hit Space or the red button to shoot grids.

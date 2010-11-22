@@ -1,3 +1,5 @@
 virtualenv
 .*\.pyc
 .*\.egg-info
+build
+dist

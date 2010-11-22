@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 
 __all__ = ["GameState", "GridOverlaps", "BadSpot", "OutOfLife"]
 
+db_path = None
 
 types = ["circle", "cross"]
 
@@ -128,7 +129,7 @@ class GameState(object):
         self.populate_coollines()
 
     def populate_coollines(self):
-        conn = sqlite3.connect("tictactroll.db")
+        conn = sqlite3.connect(db_path)
         cur = conn.cursor()
 
         cur.execute("SELECT COUNT(*) FROM lines")
@@ -196,7 +197,7 @@ class GameState(object):
             raise OutOfLife()
 
     def get_hiscores(self):
-        conn = sqlite3.connect("tictactroll.db")
+        conn = sqlite3.connect(db_path)
         cur = conn.cursor()
 
         cur.execute("""
@@ -217,7 +218,7 @@ class GameState(object):
         score = stats[1] * 1000 + stats[2] * -1000 + int(stats[0]) * 200
         self.recorded = True
 
-        conn = sqlite3.connect("tictactroll.db")
+        conn = sqlite3.connect(db_path)
         cur = conn.cursor()
 
         cur.execute("""
@@ -279,3 +280,7 @@ class GameState(object):
         bad = 0
         return (100.0, good, bad)
 
+
+def set_db_path(path):
+    global db_path
+    db_path = path

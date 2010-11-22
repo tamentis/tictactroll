@@ -1,6 +1,7 @@
 from pyramid.configuration import Configurator
 from pyramid_beaker import session_factory_from_settings
 from tictactroll.models import get_root
+import tictactroll.gamestate
 
 def app(global_config, **settings):
     """ This function returns a WSGI application.
@@ -12,6 +13,8 @@ def app(global_config, **settings):
     config.begin()
     session_factory = session_factory_from_settings(settings)
     config.set_session_factory(session_factory)
+
+    tictactroll.gamestate.set_db_path(settings.get('db_path'))
 
     config.add_view("tictactroll.views.game", name="game",
                     renderer="tictactroll:templates/game.mako")
