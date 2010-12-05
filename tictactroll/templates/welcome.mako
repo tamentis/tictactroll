@@ -21,7 +21,8 @@
     Welcome to <strong>tic-tac-troll</strong>! The twisted tic-tac-toe
     where you place the grids, not the shapes. You have ${countdown} seconds
     to place as many grids as you can, they can't overlap and they have to
-    contain three crosses aligned. Hit Space or the red button to shoot grids.
+    contain three crosses aligned. Hit Space or the red button to shoot grids
+    and use your mouse to pan around the board (like google map).
   </p>
 
   <p class="align-center" style="margin-top: 64px;">
