@@ -20,9 +20,13 @@ max_length = 64
 
 def read_reddit(url):
     """Expect a query string without the .json, returns a dict."""
-    fp = urllib.urlopen("http://www.reddit.com%s.json" % url)
-    data = json.load(fp)
-    fp.close()
+    try:
+        fp = urllib.urlopen("http://www.reddit.com%s.json" % url)
+        data = json.load(fp)
+    except:
+        data = []
+    finally:
+        fp.close()
     return data
 
 def is_cool(comment):
@@ -80,7 +84,7 @@ def get_clever_lines_from_subreddit():
     return [line for line in generate_comments(articles)]
 
 def refresh_clever_lines():
-    conn = sqlite3.connect("clever_lines.db")
+    conn = sqlite3.connect("tictactroll.db")
     cur = conn.cursor()
     cur.execute("""
         CREATE TABLE IF NOT EXISTS lines (
